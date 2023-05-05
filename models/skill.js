@@ -1,3 +1,4 @@
+
 const skills = [
     { id: 125223, skill: 'JavaScript', skillLevel: 10 },
     { id: 127904, skill: 'Express', skillLevel: 7 },
@@ -13,6 +14,7 @@ module.exports = {
     allSkills,
     oneSkill,
     createSkill,
+    deleteSkill,
 }
 
 function allSkills() {
@@ -20,10 +22,20 @@ function allSkills() {
 }
 function oneSkill(id) {
     id = parseInt(id);
-    return skills.find(skill => skill.id === id)
+    console.log("Requested ID:", id);
+    const foundSkill = skills.find(skill => skill.id === id);
+    console.log("Found skill:", foundSkill);
+    return foundSkill;
 }
+
 function createSkill(skill) {
     skill.id = Date.now() % 100000
     skills.push(skill)
     console.log(skills)
+}
+function deleteSkill(id) {
+    id = parseInt(id)
+    const index = skills.findIndex(skill => skill.id === id)
+    if (index != -1) skills.splice(index, 1)
+    else console.log('Skill not found')
 }

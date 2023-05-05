@@ -9,6 +9,7 @@ router.post('/', skillsCtrl.create)
 
 //dangerous
 router.get('/skills/:id', skillsCtrl.show)
+router.delete('/skills/:id', skillsCtrl.deleteSkill)
 
 
 module.exports = router

@@ -1,4 +1,7 @@
 <%- include('./partials/header.ejs') %>
 <h1> <%= skill.skill %> </h1>
-
+<h2> <%= skill.skillLevel %> </h2>
+<form action="/skills/<%= skill.id %>?_method=DELETE" method="POST">
+    <button type="submit"><i class="fa-solid fa-trash-can" style="color: #c72929;"></i></button>
+  </form>
 <%- include('./partials/footer.ejs') %>
